@@ -5,7 +5,7 @@ A small utility to fetch products data from Amazon
 
 
 Example Data: (fetched from amazon.in)
-```json
+```json5
 {
     "title": "Red Tape Casual Sneaker Shoes for Men | Stylish and Comfortable",
     "category": "Shoes & Handbags",
