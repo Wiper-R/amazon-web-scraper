@@ -43,11 +43,12 @@ def get_image(soup: BeautifulSoup):
 
 def get_price_and_savings(soup: BeautifulSoup):
     container = soup.find(id="corePriceDisplay_desktop_feature_div")
+
+    savings_element = container.find(class_="savingsPercentage")
     savings = (
-        container.find(class_="savingsPercentage")
-        .text.strip()
-        .replace("-", "")
-        .replace("%", "")
+        savings_element.text.strip().replace("-", "").replace("%", "")
+        if savings_element
+        else "0"
     )
     price = (
         soup.find(id="corePriceDisplay_desktop_feature_div")
@@ -66,8 +67,6 @@ def get_category(soup: BeautifulSoup):
 def main():
     with open("input.txt", "r") as f:
         _input = f.read().splitlines()
-
-    print(_input)
 
     products = []
 
